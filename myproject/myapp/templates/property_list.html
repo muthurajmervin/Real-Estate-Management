@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Property Listing</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f7f7f7; 
+            padding: 20px;
+        }
+        h1 {
+            text-align: center;
+            color: #333; 
+            margin-bottom: 30px;
+        }
+        ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        li {
+            background-color: #fff; 
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); 
+        }
+        p {
+            margin: 5px 0;
+            font-size: 18px;
+            color: #555; 
+        }
+        .unit-list {
+            list-style: none;
+            padding-left: 20px;
+        }
+        .unit-item {
+            margin-bottom: 5px;
+            color: #777; 
+        }
+    </style>
+</head>
+<body>
+    <h1>Property Listing</h1>
+    <ul>
+        {% for property in properties %}
+            <li>
+                <p style="font-size: 25px; color: #333; font-weight: bold;">{{ property.name }}</p>
+                <p>{{ property.address }}</p>
+                <p>{{ property.location }}</p>
+                <p>{{ property.Features }}</p>
+                <ul class="unit-list">
+                    {% for unit in property.units.all %}
+                        <li class="unit-item">
+                            {{ unit.unit_type }} - {{ unit.rent_cost }}
+                            <ul class="tenant-list">
+                                {% for tenant in unit.tenants.all %}
+                                    <li class="tenant-item">
+                                        Tenant: {{ tenant.name }} | Agreement End Date: {{ tenant.agreement_end_date }} | Monthly Rent date: {{ tenant.monthly_rent_date }}
+                                    </li>
+                                {% endfor %}
+                            </ul>
+                        </li>
+                    {% endfor %}
+                </ul>
+            </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

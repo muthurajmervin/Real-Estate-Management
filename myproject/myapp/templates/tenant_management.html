@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tenant Management</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f7f7f7; 
+            padding: 20px;
+            margin: 0;
+        }
+        h1 {
+            text-align: center;
+            color: #333; 
+            margin-bottom: 30px;
+        }
+        ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        li {
+            background-color: #fff; 
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); 
+        }
+        p {
+            margin: 5px 0;
+            font-size: 16px; 
+            color: #555; 
+        }
+        strong {
+            color: #333; 
+        }
+    </style>
+</head>
+<body>
+    <h1>Tenant Management</h1>
+    <ul>
+        {% for tenant in tenants %}
+            <li>
+                <p style="font-size: 20px; color: #333;"><strong>{{ tenant.name }}</strong> - {{ tenant.address }}</p>
+                <p><strong>Agreement End Date:</strong> {{ tenant.agreement_end_date }}</p>
+                <p><strong>Monthly Rent Date:</strong> {{ tenant.monthly_rent_date }}</p>
+                
+            </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

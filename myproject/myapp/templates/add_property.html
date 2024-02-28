@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Add Property</title>
+    <style>
+        body {
+            background-color: #f2f2f2; /* Set background color */
+            font-family: Arial, sans-serif; /* Change font */
+        }
+        .container {
+            text-align: center;
+            margin-top: 50px;
+        }
+        h2 {
+            color: #333; /* Change heading color */
+        }
+        form {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1); /* Add box shadow */
+        }
+        table {
+            width: 100%;
+        }
+        td {
+            padding: 10px;
+        }
+        input[type="text"] {
+            width: 100%; /* Make input fields fill the entire width */
+            padding: 8px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            box-sizing: border-box;
+        }
+        button[type="submit"] {
+            padding: 10px 20px;
+            background-color: #007bff; /* Change button background color */
+            color: #fff; /* Change button text color */
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button[type="submit"]:hover {
+            background-color: #0056b3; /* Change button background color on hover */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Add Property</h1>
+        <form method="post">
+            {% csrf_token %}
+            <table>
+                {% for field in form %}
+                <tr>
+                    <td>{{ field.label_tag }}</td>
+                    <td>{{ field }}</td>
+                </tr>
+                {% endfor %}
+            </table>
+            <button type="submit">Save</button>
+        </form>
+    </div>
+</body>
+</html>

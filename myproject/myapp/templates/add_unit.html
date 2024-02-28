@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Add Unit</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f3f3f3; /* Light gray background */
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        form {
+            background-color: #fff; /* White background */
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+        }
+        h2 {
+            text-align: center;
+            color: #333; /* Dark gray text color */
+            margin-bottom: 20px;
+        }
+        button {
+            background-color: #007bff; /* Blue button */
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        button:hover {
+            background-color: #0056b3; /* Darker blue on hover */
+        }
+        input[type="text"], select {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc; /* Light gray border */
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+        table {
+            width: 100%;
+        }
+        td {
+            padding: 10px 0;
+        }
+    </style>
+</head>
+<body>
+    <form method="post">
+        <h2>Add Unit</h2>
+        <table>
+            {% csrf_token %}
+            {{ form.as_table }}
+        </table>
+        <button type="submit">Save</button>
+    </form>
+</body>
+</html>
